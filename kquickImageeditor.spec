@@ -1,6 +1,6 @@
 %define gitdate 07122020
 
-Name:           kquickImageeditor
+Name:           kquickimageeditor
 Version:        0.0
 Release:        0.%{gitdate}.1
 Summary:        Qt Image editing components
@@ -25,7 +25,7 @@ KQuickImageEditor is a set of QtQuick components providing basic image editing
 capabilities.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q -n %{name}-master
 %autopatch -p1
 
 %build
