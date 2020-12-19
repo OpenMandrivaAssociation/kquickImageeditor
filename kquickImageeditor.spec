@@ -59,8 +59,8 @@ Header files of for KQuickImageEditor
 %{_libdir}/qml/org/kde/kquickimageeditor/libkquickimageeditorplugin.so
 %{_libdir}/qml/org/kde/kquickimageeditor/plugins.qmltypes
 %{_libdir}/qml/org/kde/kquickimageeditor/qmldir
-%{_libdir}/org/kde/kquickimageeditor/qmldir.license
-%{_prerifx}/mkspecs/modules/qt_KQuickImageEditor.pri
+%{_libdir}/qml/org/kde/kquickimageeditor/qmldir.license
+%{_prefix}/mkspecs/modules/qt_KQuickImageEditor.pri
 
 %files -n %{devname}
 %{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorConfig.cmake
