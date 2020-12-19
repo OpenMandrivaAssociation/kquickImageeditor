@@ -1,5 +1,9 @@
 %define gitdate 07122020
 
+%define major 0
+%define libname %mklibname %{name} %{major}
+%define devname %mklibname %{name} -d
+
 Name:           kquickimageeditor
 Version:        0.0
 Release:        0.%{gitdate}.1
@@ -24,6 +28,15 @@ BuildRequires:  cmake(ECM)
 KQuickImageEditor is a set of QtQuick components providing basic image editing
 capabilities.
 
+%package -n %{devname}
+Summary:	Header files for KQuickImageEditor
+Group:		Development/C
+Requires:	%{name} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
+
+%description -n %{devname}
+Header files of for KQuickImageEditor
+
 %prep
 %setup -q -n %{name}-master
 %autopatch -p1
@@ -42,3 +55,16 @@ capabilities.
 
 
 %files
+%{_libdir}/qml/org/kde/kquickimageeditor/BasicResizeHandle.qml
+%{_libdir}/qml/org/kde/kquickimageeditor/libkquickimageeditorplugin.so
+%{_libdir}/qml/org/kde/kquickimageeditor/plugins.qmltypes
+%{_libdir}/qml/org/kde/kquickimageeditor/qmldir
+%{_libdir}/org/kde/kquickimageeditor/qmldir.license
+%{_prerifx}/mkspecs/modules/qt_KQuickImageEditor.pri
+
+%files -n %{devname}
+%{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorConfig.cmake
+%{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorConfigVersion.cmake
+%{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorTargets-release.cmake
+%{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorTargets.cmake
+%{_libdir}/libkquickimageeditorplugin.so
