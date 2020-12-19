@@ -23,6 +23,7 @@ BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  cmake(ECM)
+BuildRequires:	ninja
 
 %description
 KQuickImageEditor is a set of QtQuick components providing basic image editing
@@ -42,29 +43,20 @@ Header files of for KQuickImageEditor
 %autopatch -p1
 
 %build
-%cmake \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_INSTALL_PREFIX=/usr \
-    -DCMAKE_INSTALL_LIBDIR=/usr/%{_lib}
-    
-%make_build
+%cmake_kde5
+%ninja_build
 
 %install
-
-%make_install -C build
+%ninja_install -C build
 
 
 %files
-%{_libdir}/qml/org/kde/kquickimageeditor/BasicResizeHandle.qml
-%{_libdir}/qml/org/kde/kquickimageeditor/libkquickimageeditorplugin.so
-%{_libdir}/qml/org/kde/kquickimageeditor/plugins.qmltypes
-%{_libdir}/qml/org/kde/kquickimageeditor/qmldir
-%{_libdir}/qml/org/kde/kquickimageeditor/qmldir.license
-%{_prefix}/mkspecs/modules/qt_KQuickImageEditor.pri
+%{_libdir}/qt5/mkspecs/modules/qt_KQuickImageEditor.pri
+%{_libdir}/qt5/qml/org/kde/kquickimageeditor
+%{_libdir}/libkquickimageeditorplugin.so
 
 %files -n %{devname}
 %{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorConfig.cmake
 %{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorConfigVersion.cmake
 %{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorTargets-release.cmake
 %{_libdir}/cmake/KQuickImageEditor/KQuickImageEditorTargets.cmake
-%{_libdir}/libkquickimageeditorplugin.so
