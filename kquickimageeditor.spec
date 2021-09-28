@@ -1,33 +1,32 @@
-#define gitdate 20201207
+%define gitdate 20210928
 
 %define major 0
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
-Name:           kquickimageeditor
-Version:        0.1.3
-Release:        %{?gitdate:0.%{gitdate}.}1
-Summary:        Qt Image editing components
-License:        LGPL2.1
-Group:          System/Libraries
-Url:            https://invent.kde.org/libraries/kquickimageeditor
+Name:		kquickimageeditor
+Version:	2.0.0
+Release:	%{?gitdate:0.%{gitdate}.}1
+Summary:	Qt Image editing components
+License:	LGPL2.1
+Group:		System/Libraries
+Url:		https://invent.kde.org/libraries/kquickimageeditor
 %if 0%{?gitdate}
-Source:         https://invent.kde.org/libraries/kquickimageeditor/-/archive/master/%{name}-master.tar.bz2
+Source:		https://invent.kde.org/libraries/kquickimageeditor/-/archive/master/%{name}-master.tar.bz2
 %else
-Source:         https://invent.kde.org/libraries/kquickimageeditor/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
+Source:		https://invent.kde.org/libraries/kquickimageeditor/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 %endif
 
-BuildRequires:  pkgconfig(Qt5Concurrent)
-BuildRequires:  pkgconfig(Qt5Core)
-BuildRequires:  pkgconfig(Qt5Gui)
-BuildRequires:  pkgconfig(Qt5Designer)
-BuildRequires:  pkgconfig(Qt5OpenGL)
-BuildRequires:  pkgconfig(Qt5PrintSupport)
-BuildRequires:  pkgconfig(Qt5Svg)
-BuildRequires:  pkgconfig(Qt5Widgets)
-BuildRequires:  pkgconfig(Qt5Quick)
-BuildRequires:  cmake(ECM)
-BuildRequires:	ninja
+BuildRequires:	pkgconfig(Qt5Concurrent)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Designer)
+BuildRequires:	pkgconfig(Qt5OpenGL)
+BuildRequires:	pkgconfig(Qt5PrintSupport)
+BuildRequires:	pkgconfig(Qt5Svg)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Quick)
+BuildRequires:	cmake(ECM)
 
 %description
 KQuickImageEditor is a set of QtQuick components providing basic image editing
@@ -40,7 +39,7 @@ Requires:	%{name} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
-Header files of for KQuickImageEditor
+Header files of for KQuickImageEditor.
 
 %prep
 %if 0%{?gitdate}
