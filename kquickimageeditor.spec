@@ -1,20 +1,21 @@
-%define gitdate 20210928
+%undefine gitdate
 
 %define major 0
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
 Name:		kquickimageeditor
-Version:	2.0.0
+Version:	0.2.0
 Release:	%{?gitdate:0.%{gitdate}.}1
 Summary:	Qt Image editing components
 License:	LGPL2.1
 Group:		System/Libraries
 Url:		https://invent.kde.org/libraries/kquickimageeditor
 %if 0%{?gitdate}
-Source:		https://invent.kde.org/libraries/kquickimageeditor/-/archive/master/%{name}-master.tar.bz2
+Source0:	https://invent.kde.org/libraries/kquickimageeditor/-/archive/master/%{name}-master.tar.bz2
 %else
-Source:		https://invent.kde.org/libraries/kquickimageeditor/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
+#Source0:	https://invent.kde.org/libraries/kquickimageeditor/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
+Source0:	https://download.kde.org/stable/kquickimageeditor/%{name}-%{version}.tar.xz
 %endif
 
 BuildRequires:	pkgconfig(Qt5Concurrent)
@@ -35,8 +36,8 @@ capabilities.
 %package -n %{devname}
 Summary:	Header files for KQuickImageEditor
 Group:		Development/C
-Requires:	%{name} = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{name} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 Header files of for KQuickImageEditor.
@@ -45,7 +46,7 @@ Header files of for KQuickImageEditor.
 %if 0%{?gitdate}
 %autosetup -p1 -n %{name}-master
 %else
-%autosetup -p1 -n %{name}-v%{version}
+%autosetup -p1
 %endif
 %cmake_kde5
 
