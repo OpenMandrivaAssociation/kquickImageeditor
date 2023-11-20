@@ -5,7 +5,7 @@
 %define devname %mklibname %{name} -d
 
 Name:		kquickimageeditor
-Version:	0.2.0
+Version:	0.3.0
 Release:	%{?gitdate:0.%{gitdate}.}1
 Summary:	Qt Image editing components
 License:	LGPL2.1
@@ -29,6 +29,17 @@ BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Quick)
 BuildRequires:	cmake(ECM)
 
+# Qt6
+BuildRequires:	pkgconfig(Qt6Concurrent)
+BuildRequires:	pkgconfig(Qt6Core)
+BuildRequires:	pkgconfig(Qt6Gui)
+BuildRequires:	pkgconfig(Qt6Designer)
+BuildRequires:	pkgconfig(Qt6OpenGL)
+BuildRequires:	pkgconfig(Qt6PrintSupport)
+BuildRequires:	pkgconfig(Qt6Svg)
+BuildRequires:	pkgconfig(Qt6Widgets)
+BuildRequires:	pkgconfig(Qt6Quick)
+
 %description
 KQuickImageEditor is a set of QtQuick components providing basic image editing
 capabilities.
@@ -43,18 +54,26 @@ Provides:	%{name}-devel = %{EVRD}
 Header files of for KQuickImageEditor.
 
 %prep
-%if 0%{?gitdate}
-%autosetup -p1 -n %{name}-master
-%else
 %autosetup -p1
-%endif
+%build
+export CMAKE_BUILD_DIR=build-qt5
 %cmake_kde5
 
-%build
-%ninja_build -C build
+cd ..
+export CMAKE_BUILD_DIR=build-qt6
+%cmake \
+       -DBUILD_WITH_QT6:BOOL=ON \
+       -G Ninja
+cd ..
+
+%ninja_build -C build-qt5
+
+%ninja_build -C build-qt6
 
 %install
-%ninja_install -C build
+%ninja_install -C build-qt5
+
+%ninja_install -C build-qt6
 
 
 %files
