@@ -58,7 +58,7 @@ Header files of for KQuickImageEditor.
 
 %prep
 %autosetup -p1
-%build
+
 export CMAKE_BUILD_DIR=build-qt5
 %cmake_kde5
 
@@ -68,7 +68,7 @@ export CMAKE_BUILD_DIR=build-qt6
        -DBUILD_WITH_QT6:BOOL=ON \
        -G Ninja
 cd ..
-
+%build
 %ninja_build -C build-qt5
 
 %ninja_build -C build-qt6
