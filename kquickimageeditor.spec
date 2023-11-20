@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(Qt5Quick)
 BuildRequires:	cmake(ECM)
 
 # Qt6
+BuildRequires:       cmake(Qt6)
 BuildRequires:	pkgconfig(Qt6Concurrent)
 BuildRequires:	pkgconfig(Qt6Core)
 BuildRequires:	pkgconfig(Qt6Gui)
