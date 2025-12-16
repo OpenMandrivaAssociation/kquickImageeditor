@@ -25,6 +25,7 @@ BuildRequires:	pkgconfig(Qt6PrintSupport)
 BuildRequires:	pkgconfig(Qt6Svg)
 BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(Qt6Quick)
+BuildRequires:	cmake(Qt6Test)
 BuildRequires:	cmake(KF6Config)
 BuildRequires:	cmake(ECM)
 BuildSystem:	cmake
