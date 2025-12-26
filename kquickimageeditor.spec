@@ -4,7 +4,7 @@
 
 Name:		kquickimageeditor
 Version:	0.6.0
-Release:	%{?gitdate:0.%{gitdate}.}1
+Release:	%{?gitdate:0.%{gitdate}.}2
 Summary:	Qt Image editing components
 License:	LGPL2.1
 Group:		System/Libraries
@@ -15,6 +15,8 @@ Source0:	https://invent.kde.org/libraries/kquickimageeditor/-/archive/master/%{n
 #Source0:	https://invent.kde.org/libraries/kquickimageeditor/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 Source0:	https://download.kde.org/stable/kquickimageeditor/%{name}-%{version}.tar.xz
 %endif
+
+%rename kquickimageeditor-qt6
 
 BuildRequires:	pkgconfig(Qt6Concurrent)
 BuildRequires:	pkgconfig(Qt6Core)
