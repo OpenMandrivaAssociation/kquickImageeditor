@@ -3,8 +3,8 @@
 %define devname %mklibname %{name} -d
 
 Name:		kquickimageeditor
-Version:	0.6.0
-Release:	%{?gitdate:0.%{gitdate}.}2
+Version:	0.6.1
+Release:	%{?gitdate:0.%{gitdate}.}1
 Summary:	Qt Image editing components
 License:	LGPL2.1
 Group:		System/Libraries
@@ -54,5 +54,4 @@ Header files of for KQuickImageEditor.
 %{_libdir}/libKQuickImageEditor.so
 %{_qtdir}/mkspecs/modules/qt_KQuickImageEditor.pri
 %{_libdir}/cmake/KQuickImageEditor
-%{_includedir}/kquickimageeditor
 %{_includedir}/KQuickImageEditor
