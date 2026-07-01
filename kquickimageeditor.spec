@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(Qt6Quick)
 BuildRequires:	cmake(Qt6Test)
 BuildRequires:	cmake(KF6Config)
 BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(OpenCV)
 BuildSystem:	cmake
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
