@@ -3,7 +3,7 @@
 %define devname %mklibname %{name} -d
 
 Name:		kquickimageeditor
-Version:	0.6.1
+Version:	0.6.2.1
 Release:	%{?gitdate:0.%{gitdate}.}1
 Summary:	Qt Image editing components
 License:	LGPL2.1
