@@ -1,0 +1,12 @@
+diff -ruN a/CMakeLists.txt kquickimageeditor/CMakeLists.txt
+--- a/CMakeLists.txt	2026-06-30 16:29:30.000000000 +0200
++++ b/CMakeLists.txt	2026-08-14 19:24:42.916997499 +0200
+@@ -35,7 +35,7 @@
+ 
+ cmake_dependent_option(WITH_OPENCV "Build with OpenCV stack blur (recommended)" TRUE "UNIX AND NOT ANDROID" FALSE)
+ if(WITH_OPENCV)
+-    find_package(OpenCV 4.7 COMPONENTS core imgproc REQUIRED)
++    find_package(OpenCV REQUIRED COMPONENTS core imgproc)
+ endif()
+ 
+ set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KQuickImageEditor")
