@@ -4,7 +4,7 @@
 
 Name:		kquickimageeditor
 Version:	0.6.2.1
-Release:	%{?gitdate:0.%{gitdate}.}2
+Release:	%{?gitdate:0.%{gitdate}.}3
 Summary:	Qt Image editing components
 License:	LGPL2.1
 Group:		System/Libraries
