@@ -3,8 +3,8 @@
 %define devname %mklibname %{name} -d
 
 Name:		kquickimageeditor
-Version:	0.6.2.1
-Release:	%{?gitdate:0.%{gitdate}.}3
+Version:	0.7.0.1
+Release:	1
 Summary:	Qt Image editing components
 License:	LGPL2.1
 Group:		System/Libraries
@@ -15,8 +15,6 @@ Source0:	https://invent.kde.org/libraries/kquickimageeditor/-/archive/master/%{n
 #Source0:	https://invent.kde.org/libraries/kquickimageeditor/-/archive/v%{version}/%{name}-v%{version}.tar.bz2
 Source0:	https://download.kde.org/stable/kquickimageeditor/%{name}-%{version}.tar.xz
 %endif
-Patch0:		kquickimageeditor-opencv5.patch
-
 %rename kquickimageeditor-qt6
 
 BuildRequires:	pkgconfig(Qt6Concurrent)
@@ -29,9 +27,11 @@ BuildRequires:	pkgconfig(Qt6Svg)
 BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(Qt6Quick)
 BuildRequires:	cmake(Qt6Test)
+BuildRequires:	cmake(Qt6ShaderTools)
 BuildRequires:	cmake(KF6Config)
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake(OpenCV)
+# 0.7 replaced the OpenCV stack blur with Google Highway.
+BuildRequires:	cmake(hwy) >= 1.3
 BuildSystem:	cmake
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
